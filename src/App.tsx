@@ -1,17 +1,22 @@
-import { useEffect, useContext, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import './index.css';
 
-const Home = lazy(() => import("./Pages/Home"));
+
+
+const Welcome = lazy(() => import("./Pages/Welcome"));
 
 function App() {
-
   return (
-    <>
-      <div>
-        Hello Huy
-      </div>
-    </>
-  )
+    <div>
+      <Suspense>
+        <Routes>
+          <Route index path="/" element={<Welcome />} />
+        </Routes>
+      </Suspense>
+    </div>
+  );
 }
 
-export default App
+export default App;
